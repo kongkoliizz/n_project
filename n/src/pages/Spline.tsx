@@ -1,5 +1,5 @@
-import Spline from 'typescript-cubic-spline'
 import { useState } from 'react'
+import { SplineInterpolation } from '../Method/spline'
 
 export const SP = () => {
   const [my, setY] = useState('')
@@ -7,19 +7,53 @@ export const SP = () => {
   const [val, setV] = useState('')
 
   const handleSubmit = () =>{
-    var a = S({Y:my}, {X:mx}, {V:val})
+    SplineInterpolation(my, mx, val)
   } 
-  const S = ({Y}:{Y:string}, {X}:{X:string}, {V}:{V:string}) =>{
-    const mX = JSON.parse(X)
-    const mY = JSON.parse(Y)
-    const value = parseFloat(V)
-
-    let spline = new Spline(mX, mY)
-    let ans = spline.at(value)
-  }
   return (
-    <div>
-        <h1>Spline</h1>
+    <div className="container">
+      <div className="row mt-4">
+        <div className="col-12 col-md-6 offset-md-3">
+          <h2 className="my-4 text-center">Newtons Divided Differences</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Y</label>
+              <input
+                type="text"
+                className="form-control"
+                id="ysp"
+                value={my}
+                onChange= {(e) => setY(e.target.value)}
+                placeholder="Enter"
+              />
+            </div>
+            <div className="form-group">
+              <label>X</label>
+              <input
+                type="text"
+                className="form-control"
+                id="xsp"
+                value={mx}
+                onChange= {(e) => setX(e.target.value)}
+                placeholder="Enter"
+              />
+            </div>
+            <div className="form-group">
+              <label>Value</label>
+              <input
+                type="text"
+                className="form-control"
+                id="vsp"
+                value={val}
+                onChange= {(e) => setV(e.target.value)}
+                placeholder="Enter"
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }

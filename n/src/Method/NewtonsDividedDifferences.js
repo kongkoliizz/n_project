@@ -1,7 +1,6 @@
 import { simplify, evaluate } from 'mathjs';
 
-export const NewtonsDividedDifferences = (req,res) => {
-    const { Y, X, V } = req.body
+export const newton = (Y,X,V) => {
     const mX = JSON.parse(X)
     const Y0 = JSON.parse(Y)
     const value = parseFloat(V)

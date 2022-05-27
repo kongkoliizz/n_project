@@ -1,54 +1,60 @@
 import { simplify, evaluate } from 'mathjs';
 import { useState } from 'react';
+import { newton } from '../Method/NewtonsDividedDifferences';
 
 export const NewtonsDividedDifferences = () => {
-  const [y0, setY] = useState('')
-  const [mx, setX] = useState('')
-  const [val, setV] = useState('')
+  const [y, setY] = useState('')
+  const [x, setX] = useState('')
+  const [v, setV] = useState('')
 
-  const n = ({Y}:{Y:string}, {X}:{X:string}, {V}:{V:string}) =>{
-    const mX = JSON.parse(X)
-    const Y0 = JSON.parse(Y)
-    const value = parseFloat(V)
-    // const mY = []
-    let n = mX.length
-
-    for(let i = 0; i < n; i++){
-        // mY[i] = [];
-        // mY[i][0] = Y0[i]
-    }
-
-    let proterm = (i: number, value: number, mX: number[]) => {
-        let pro = 1;
-        for(let j = 0; j < i; j++){
-            pro = pro * (value - mX[j])
-        }
-        return pro;
-    }
-
-    function dividedDiffTable(mX: number[], mY: number[][], n: number){
-        for(let i = 1; i < n; i++){
-            for(let j = 0; j < n - i; j++){
-                mY[j][i] = (mY[j][i-1] - mY[j+1][i-1]) / (mX[j] - mX[i+j])
-            }
-        }
-    }
-
-    let applyFormula = (value: number, mX: number[], mY: number[][], n: number) => {
-        let sum = mY[0][0]
-        for(let i = 1; i < n; i++){
-            sum = sum + (proterm(i, value, mX) * mY[0][i])
-        }
-        return sum;
-    }
-
-    // dividedDiffTable(mX, mY, n)
-    // let f = applyFormula(value, mX, mY, n)
-    // // console.log(mY)
+  const handleSubmit = () =>{
+    newton(y,x,v)
   }
   return (
-    <div>
-        <h1>NewtonsDividedDifferences</h1>
+    <div className="container">
+      <div className="row mt-4">
+        <div className="col-12 col-md-6 offset-md-3">
+          <h2 className="my-4 text-center">Newtons Divided Differences</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Y</label>
+              <input
+                type="text"
+                className="form-control"
+                id="ynt"
+                value={y}
+                onChange= {(e) => setY(e.target.value)}
+                placeholder="Enter"
+              />
+            </div>
+            <div className="form-group">
+              <label>X</label>
+              <input
+                type="text"
+                className="form-control"
+                id="xnt"
+                value={x}
+                onChange= {(e) => setX(e.target.value)}
+                placeholder="Enter"
+              />
+            </div>
+            <div className="form-group">
+              <label>Value</label>
+              <input
+                type="text"
+                className="form-control"
+                id="vnt"
+                value={v}
+                onChange= {(e) => setV(e.target.value)}
+                placeholder="Enter"
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }

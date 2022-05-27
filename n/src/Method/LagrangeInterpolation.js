@@ -1,5 +1,4 @@
-export const LagrangeInterpolationMethod = (req, res) => {
-    const { Y, X, V } = req.body
+export const LagrangeInterpolationMethod = (Y, X, V) => {
     const mX = JSON.parse(X)
     const mY = JSON.parse(Y)
     const value = parseFloat(V)
@@ -16,9 +15,5 @@ export const LagrangeInterpolationMethod = (req, res) => {
         }
         yp = yp + p * mY[i]
     }
-
-    res.json({
-        ans: yp
-    })
-
+    console.log(yp)
 }

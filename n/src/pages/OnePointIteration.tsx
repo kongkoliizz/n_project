@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { derivative, simplify, evaluate } from 'mathjs'
+import { simplify, evaluate } from 'mathjs'
 
 export const OnePointIteration = () => {
   const [Fx, setFx] = useState('')

@@ -1,31 +1,60 @@
-import React, { useState } from 'react'
+import { useState } from "react"
+import { LagrangeInterpolationMethod } from "../Method/LagrangeInterpolation"
 
 export const Lagrangepolynomials = () => {
-  const [y0, setY] = useState('')
-  const [mx, setX] = useState('')
-  const [val, setV] = useState('')
+  const [y, setY] = useState('')
+  const [x, setX] = useState('')
+  const [v, setV] = useState('')
 
-  const L = ({Y}:{Y:string}, {X}:{X:string}, {V}:{V:string}) =>{
-    const mX = JSON.parse(X)
-    const mY = JSON.parse(Y)
-    const value = parseFloat(V)
-    let n = mX.length
-
-    let yp = 0
-
-    for(let i = 0; i < n; i++){
-        let p = 1
-        for(let j = 0; j < n; j++){
-            if(i != j){
-                p = p * (value - mX[j])/(mX[i] - mX[j])
-            }
-        }
-        yp = yp + p * mY[i]
-    }
+  const handleSubmit = () =>{
+    LagrangeInterpolationMethod(y,x,v)
   }
+
   return (
-    <div>
-        <h1>Lagrangepolynomials</h1>
+    <div className="container">
+      <div className="row mt-4">
+        <div className="col-12 col-md-6 offset-md-3">
+          <h2 className="my-4 text-center">Lagrange</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Y</label>
+              <input
+                type="text"
+                className="form-control"
+                id="yl"
+                value={y}
+                onChange= {(e) => setY(e.target.value)}
+                placeholder="Enter"
+              />
+            </div>
+            <div className="form-group">
+              <label>X</label>
+              <input
+                type="text"
+                className="form-control"
+                id="xl"
+                value={x}
+                onChange= {(e) => setX(e.target.value)}
+                placeholder="Enter"
+              />
+            </div>
+            <div className="form-group">
+              <label>Value</label>
+              <input
+                type="text"
+                className="form-control"
+                id="vl"
+                value={v}
+                onChange= {(e) => setV(e.target.value)}
+                placeholder="Enter"
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }
