@@ -24,7 +24,7 @@ export const Lagrangepolynomials = () => {
                 id="yl"
                 value={y}
                 onChange= {(e) => setY(e.target.value)}
-                placeholder="Enter"
+                placeholder="....."
               />
             </div>
             <div className="form-group">
@@ -35,7 +35,7 @@ export const Lagrangepolynomials = () => {
                 id="xl"
                 value={x}
                 onChange= {(e) => setX(e.target.value)}
-                placeholder="Enter"
+                placeholder="....."
               />
             </div>
             <div className="form-group">
@@ -46,7 +46,7 @@ export const Lagrangepolynomials = () => {
                 id="vl"
                 value={v}
                 onChange= {(e) => setV(e.target.value)}
-                placeholder="Enter"
+                placeholder="....."
               />
             </div>
             <button type="submit" className="btn btn-primary">
