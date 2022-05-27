@@ -1,6 +1,4 @@
-export const GaussJordan = (req, res) => {
-
-    const { A, B } = req.body
+export const GaussJordan = (A, B) => {
     const mA = JSON.parse(A)
     const mB = JSON.parse(B)
     const Amat = []
@@ -85,8 +83,5 @@ export const GaussJordan = (req, res) => {
         }
         x = PrintResult(Amat, size, flag);
     }
-
-    res.json({
-        X: x
-    })
+    console.log(x)
 }

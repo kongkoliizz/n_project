@@ -1,5 +1,4 @@
-export const JacobiIteration = (req,res) => {
-    const { A, B, X, M } = req.body
+export const JacobiIteration = (A,B,X,M) => {
     const mA = JSON.parse(A)
     const mB = JSON.parse(B)
     const mX = JSON.parse(X)
@@ -19,8 +18,6 @@ export const JacobiIteration = (req,res) => {
         x[i][0] = mX[i]
     }
 
-    // const { A, X, M } = req.body;
-    // let n = A.length, iteration = 0, Iteration = [], x = []
     let m = parseInt(M);
 
     function jacobi(A, X, n, m) {
@@ -34,11 +31,11 @@ export const JacobiIteration = (req,res) => {
                 }
                 X[j][i+1] = X[j][i+1] / A[j][j];
             }
-            // for (let i = 0; i < n; i++){
-            //     x[i] = X[i][iteration];
-            // }
-            // Iteration.push({iteration, x});
-            // iteration++;
+            for (let i = 0; i < n; i++){
+                x[i] = X[i][iteration];
+            }
+            Iteration.push({iteration, x});
+            iteration++;
         }
         for (let i = 0; i < n; i++){
             ans[i] = X[i][m-1];
@@ -56,9 +53,5 @@ export const JacobiIteration = (req,res) => {
         // console.log(size)
         jacobi(Amat, x, size, m);
     }
-    
-
-    res.json({
-        X: ans,
-    })
+    console.log(ans)
 }

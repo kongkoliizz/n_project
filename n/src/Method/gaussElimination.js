@@ -1,7 +1,6 @@
 import { round } from 'mathjs'
 
-export const GaussElimination = (req,res) => {
-    const { A, B } = req.body
+export const GaussElimination = (A,B) => {
     const mA = JSON.parse(A)
     const mB = JSON.parse(B)
     const Amat = []
@@ -47,10 +46,6 @@ export const GaussElimination = (req,res) => {
             x[i] = x[i]/Amat[i][i];
         }
     }
-
-
-    res.json({
-        X: round(x),
-        AB: Amat
-    })
+    console.log(round(x))
+    console.log(Amat)
 }

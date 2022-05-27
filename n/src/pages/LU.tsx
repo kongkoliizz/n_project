@@ -1,105 +1,47 @@
 import { useState } from 'react'
+import { LU } from '../Method/LU'
 
-export const LU = () =>{
+export const LUCOM = () =>{
   const [ma, SetA] = useState('')
   const [mb, SetB] = useState('')
 
-//   const handleSubmit = () =>{
-//     var a = LU({A:ma}, {B:mb})
-//   }
-
-//   const LU = ({A}:{A:string}, {B}:{B:string}) =>{
-//     const mA = JSON.parse(A)
-//     const mB = JSON.parse(B)
-//     const Amat = []
-//     let size = mA.length
-//     let check = false
-//     let x = [], ans = []
-//     for (let i = 0; i < mA.length; i++) {
-//         if (mA[i].length === size) {
-//             check = true
-//             break
-//         }
-//     }
-
-//     function luDecomposition(A,n) {
-//         var L = [], U = [];
-//         for(let i = 0; i < n; i++){
-//             L[i] = [];
-//             U[i] = [];
-//             for(let j = 0; j <= n; j++){
-//                 // L[i][j] = 0;
-//                 // U[i][j] = 0;
-//             }
-//         }
-//         for(let i = 0; i < n; i++){
-//             for(let k = i; k < n; k++){
-//                 let sum = 0;
-//                 for(let j = 0; j < i; j++){
-//                     sum += (L[i][j] * U[j][k]);
-//                 }
-//                 U[i][k] = A[i][k] - sum;
-//             }
-//             for(let k = i; k < n; k++){
-//                 if(i == k)
-//                     L[i][i] = 1
-//                 else{
-//                     let sum = 0;
-//                     for(let j = 0; j < i; j++){
-//                         sum += (L[k][j] * U[j][i]);
-//                     }
-//                     L[k][i] = (A[k][i] - sum) / U[i][i];
-//                 }
-//             }
-//         }
-//         var Y = [],X = [];
-//         for(let i = 0; i < n; i++){
-//             L[i][n] = A[i][n];
-//         }
-//         // console.log(L);
-//         for(var i = 0; i < n; i++ ){
-//             Y[i] = L[i][n];
-//             for(let j = i - 1; j >= 0; j--){
-//                 if(i != j){
-//                     Y[i] = Y[i] - L[i][j]*Y[j];
-//                 }
-//             }
-//         }
-//         // console.log(Y);
-//         for(let i = 0; i < n; i++){
-//             U[i][n] = Y[i];
-//         }
-//         for(var i = n-1; i >= 0; i-- ){
-//             X[i] = U[i][n];
-//             for(var j = i + 1; j < n; j++){
-//                 if(i != j){
-//                     X[i] = X[i] - U[i][j]*X[j];
-//                 }
-//             }
-//             X[i] = X[i]/U[i][i];
-//         }
-//         // console.log(A);
-//         // console.log(L);
-//         // console.log(U);
-//         // console.log(Y);
-//         // console.log(X);
-//         x = X;
-//         ans.push({A, L, U, X})
-//     }
-//     if (check) {
-//         for (let s = 0; s < size; s++) {
-//             Amat[s] = [];
-//             for (let i = 0; i <= size; i++) {
-//                 Amat[s][i] = mA[s][i]
-//             }
-//             Amat[s][size] = mB[s];
-//         }
-//         luDecomposition(Amat,size);
-//     }
-//   }
+  const handleSubmit = () =>{
+    LU(ma,mb)
+  }
   return (
-    <div>
-        <h1>LU</h1>
+    <div className="container">
+      <div className="row mt-4">
+        <div className="col-12 col-md-6 offset-md-3">
+          <h2 className="my-4 text-center">LU Composition</h2>
+          <form>
+            <div className="form-group">
+              <label>Matrix A</label>
+              <input
+                type="text"
+                className="form-control"
+                id="maLU"
+                value={ma}
+                onChange={(e) => SetA(e.target.value)}
+                placeholder="Enter Function"
+              />
+            </div>
+            <div className="form-group">
+              <label>Matrix B</label>
+              <input
+                type="text"
+                className="form-control"
+                id="mbLU"
+                value={mb}
+                onChange={(e) => SetB(e.target.value)}
+                placeholder="Enter Left"
+              />
+            </div>
+          </form>
+            <button onClick={handleSubmit} type="submit" className="btn btn-primary">
+              Submit
+            </button>
+        </div>
+      </div>
     </div>
   )
 }

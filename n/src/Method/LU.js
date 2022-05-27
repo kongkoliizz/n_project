@@ -1,4 +1,4 @@
-export const LU = (req,res) => {
+export const LU = (A,B) => {
     // const { A } = req.body;
     // let n = A.length, ans = [], x = [];
     const { A, B } = req.body
@@ -89,10 +89,6 @@ export const LU = (req,res) => {
         }
         luDecomposition(Amat,size);
     }
-    
-
-    res.json({
-        X: x,
-        Matrix: ans
-    })
+    console.log(x)
+    console.log(ans)
 }

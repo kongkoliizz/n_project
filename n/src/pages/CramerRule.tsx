@@ -47,9 +47,9 @@ export const CramerRule = () => {
         for (let i = 0; i < size; i++) {
             let t = det(Amat[i]) / det(mA)
             x.push(t)
-            console.log(x)
         }
     }
+    console.log(round(x))
   }
 
   return (

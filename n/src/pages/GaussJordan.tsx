@@ -1,104 +1,48 @@
 import { useState } from 'react'
+import { GaussJordan } from '../Method/gaussJordan'
 
-export const GaussJordan = () =>{
+export const GJ = () =>{
 
   const [ma, SetA] = useState('')
   const [mb, SetB] = useState('')
 
   const handleSubmit = () =>{
-    var a = GJ({A:ma}, {B:mb})
-  }
-
-  const GJ = ({A}:{A:string}, {B}:{B:string}) =>{
-
-    const mA = JSON.parse(A)
-    const mB = JSON.parse(B)
-    const Amat = []
-    let size = mA.length
-    let check = false
-    let x = []
-    for (let i = 0; i < mA.length; i++) {
-        if (mA[i].length === size) {
-            check = true
-            break
-        }
-    }
-
-    function PerformOperation(A: any[][], n: number) {
-        let i, j, k = 0, c, flag = 0, temp, pro = 0.0;
-        for (i = 0; i < n; i++) {
-            if (A[i][i] == 0) {
-                c = 1;
-                while ((i + c) < n && A[i + c][i] == 0) {
-                    c++;
-                }
-                if ((i + c) == n) {
-                    flag = 1;
-                    break;
-                }
-                for (j = i, k = 0; k <= n; k++) {
-                    temp = A[j][k];
-                    A[j][k] = A[j + c][k];
-                    A[j + c][k] = temp;
-                }
-            }
-            for (j = 0; j < n; j++) {
-                if (i != j) {
-                    pro = A[j][i] / A[i][i];
-                    for (k = 0; k <= n; k++) {
-                        A[j][k] = A[j][k] - (A[i][k]) * pro;
-                    }
-                }
-            }
-        }
-        return flag;
-    }
-    function PrintResult(A: number[][], n: number, flag: number) {
-        if (flag == 2)
-            console.log("Infinite Solutions Exists");
-        else if (flag == 3)
-            console.log("No Solution Exists");
-        else {
-            var X = [];
-            for (let i = 0; i < n; i++) {
-                X[i] = A[i][n] / A[i][i];
-            }
-        }
-        return (X);
-    }
-    function CheckConsistency(A: any[][], n: number, flag: number) {
-        var i, j, sum;
-        flag = 3;
-        for (i = 0; i < n; i++) {
-            sum = 0.0;
-            for (j = 0; j < n; j++)
-                sum = sum + A[i][j];
-            if (sum == A[i][j])
-                flag = 2;
-        }
-        return flag;
-    }
-
-    if (check) {
-        for (let s = 0; s < size; s++) {
-            Amat[s] = [];
-            for (let i = 0; i <= size; i++) {
-                // Amat[s][i] = mA[s][i]
-            }
-            // Amat[s][size] = mB[s];
-        }
-        // console.log(Amat[0][size]+Amat[1][size])
-        let flag = 0;
-        flag = PerformOperation(Amat, size);
-        if (flag == 1) {
-            flag = CheckConsistency(Amat, size, flag);
-        }
-        // x = PrintResult(Amat, size, flag);
-    }
+    GaussJordan(ma, mb)
   }
   return (
-    <div>
-        <h1>GaussJordan</h1>
+    <div className="container">
+      <div className="row mt-4">
+        <div className="col-12 col-md-6 offset-md-3">
+          <h2 className="my-4 text-center">GaussJordan</h2>
+          <form>
+            <div className="form-group">
+              <label>Matrix A</label>
+              <input
+                type="text"
+                className="form-control"
+                id="maGJ"
+                value={ma}
+                onChange={(e) => SetA(e.target.value)}
+                placeholder="Enter Function"
+              />
+            </div>
+            <div className="form-group">
+              <label>Matrix B</label>
+              <input
+                type="text"
+                className="form-control"
+                id="mbGJ"
+                value={mb}
+                onChange={(e) => SetB(e.target.value)}
+                placeholder="Enter Left"
+              />
+            </div>
+          </form>
+            <button onClick={handleSubmit} type="submit" className="btn btn-primary">
+              Submit
+            </button>
+        </div>
+      </div>
     </div>
   )
 }
