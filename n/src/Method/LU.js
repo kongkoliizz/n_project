@@ -1,7 +1,4 @@
 export const LU = (A,B) => {
-    // const { A } = req.body;
-    // let n = A.length, ans = [], x = [];
-    const { A, B } = req.body
     const mA = JSON.parse(A)
     const mB = JSON.parse(B)
     const Amat = []

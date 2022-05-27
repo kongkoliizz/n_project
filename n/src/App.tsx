@@ -8,12 +8,14 @@ import { Secant } from './pages/Secant'
 import { NewtonsDividedDifferences } from './pages/NewtonsDividedDifferences'
 import { Lagrangepolynomials } from './pages/Lagrangepolynomials'
 import { SP} from './pages/Spline'
-import { Regression } from './pages/Regression'
+import { LR } from './pages/LinearR'
+import { PR } from './pages/polyR'
+import { MR } from './pages/MultiR'
 import { CramerRule } from './pages/CramerRule'
-import { GaussElimination } from './pages/GaussElimination'
-import { GaussJordan } from './pages/GaussJordan'
-import { Jacobi } from './pages/Jacobi'
-import { LU } from './pages/LU'
+import { GE } from './pages/GaussElimination'
+import { GJ } from './pages/GaussJordan'
+import { JC } from './pages/Jacobi'
+import { LUCOM } from './pages/LU'
 import './App.css'
 
 function App() {
@@ -31,12 +33,14 @@ function App() {
             <Route path="/newtonsndivideddifferences" element={<NewtonsDividedDifferences />} />
             <Route path="/lagrangepolynomials" element={<Lagrangepolynomials />} />
             <Route path="/spline" element={<SP />} />
-            <Route path="/regression" element={<Regression />} />
+            <Route path="/linearregression" element={<LR />} />
+            <Route path="/polynomialregression" element={<PR />} />
+            <Route path="/multiregression" element={<MR />} />
             <Route path="/cmr" element={<CramerRule />} />
-            <Route path="/ge" element={<GaussElimination />} />
-            <Route path="/gj" element={<GaussJordan />} />
-            <Route path="/jc" element={<Jacobi />} />
-            <Route path="/lu" element={<LU />} />
+            <Route path="/ge" element={<GJ />} />
+            <Route path="/gj" element={<GE />} />
+            <Route path="/jc" element={<JC />} />
+            <Route path="/lu" element={<LUCOM />} />
           </Routes>
       </BrowserRouter>
     </div>

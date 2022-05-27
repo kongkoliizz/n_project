@@ -1,4 +1,4 @@
-import { ConditionalNodeDependencies, det, round } from 'mathjs'
+import { det, round } from 'mathjs'
 import { useState } from 'react'
 
 export const CramerRule = () => {

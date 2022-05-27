@@ -30,7 +30,11 @@ export const NavBar = () => {
                         <NavDropdown.Item href="/lagrangepolynomials">Lagrange</NavDropdown.Item>
                         <NavDropdown.Item href="/spline">Spline</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link as={Link} to="/regression">Regression</Nav.Link>
+                    <NavDropdown title="Regression" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/linearregression">Linear Regression</NavDropdown.Item>
+                        <NavDropdown.Item href="/polynomialregression">Polynomial Regression</NavDropdown.Item>
+                        <NavDropdown.Item href="/multiregression">Multi Regression</NavDropdown.Item>
+                    </NavDropdown>
                     <NavDropdown title="Integration and Differentiation" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#">#########</NavDropdown.Item>
                         <NavDropdown.Item href="#">#########</NavDropdown.Item>

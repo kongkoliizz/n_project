@@ -14,6 +14,7 @@
     "cubic-spline-ts": "^3.0.8",
     "gaussian-elimination": "^1.0.2",
     "mathjs": "^10.5.3",
+    "ml-regression-multivariate-linear": "^2.0.3",
     "multiple-linear-regression": "^0.0.2",
     "react": "^18.0.0",
     "react-bootstrap": "^2.4.0",
