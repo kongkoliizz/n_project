@@ -27,17 +27,17 @@ export const GaussElimination = () =>{
         for (let s = 0; s < size; s++) {
             Amat[s] = []
             for (let i = 0; i <= size; i++) {
-                // Amat[s][i] = mA[s][i]
+                Amat[s][i] = mA[s][i]
             }
-            // Amat[s][size] = mB[s]
+            Amat[s][size] = mB[s]
         }
-        // console.log(Amat)
+        console.log(Amat)
 
         for(var i = 0; i < size; i++){
             for(var j = i + 1; j < size; j++){
                 var c = Amat[j][i]/Amat[i][i]
                 for(var k = 0; k < size+1; k++){
-                    // Amat[j][k] = Amat[j][k] - c*Amat[i][k]
+                    Amat[j][k] = Amat[j][k] - c*Amat[i][k]
                 }
             }
         }
@@ -54,8 +54,39 @@ export const GaussElimination = () =>{
     }
   }
   return (
-    <div>
-        <h1>GaussElimination</h1>
+    <div className="container">
+      <div className="row mt-4">
+        <div className="col-12 col-md-6 offset-md-3">
+          <h2 className="my-4 text-center">GaussElimination</h2>
+          <form>
+            <div className="form-group">
+              <label>Matrix A</label>
+              <input
+                type="text"
+                className="form-control"
+                id="maGE"
+                value={ma}
+                onChange={(e) => SetA(e.target.value)}
+                placeholder="Enter Function"
+              />
+            </div>
+            <div className="form-group">
+              <label>Matrix B</label>
+              <input
+                type="text"
+                className="form-control"
+                id="mbGE"
+                value={mb}
+                onChange={(e) => SetB(e.target.value)}
+                placeholder="Enter Left"
+              />
+            </div>
+          </form>
+            <button onClick={handleSubmit} type="submit" className="btn btn-primary">
+              Submit
+            </button>
+        </div>
+      </div>
     </div>
   )
 }

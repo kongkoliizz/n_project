@@ -47,7 +47,7 @@ export const CramerRule = () => {
         for (let i = 0; i < size; i++) {
             let t = det(Amat[i]) / det(mA)
             x.push(t)
-            console.log(t)
+            console.log(x)
         }
     }
   }
@@ -63,7 +63,7 @@ export const CramerRule = () => {
               <input
                 type="text"
                 className="form-control"
-                id="BiFunction"
+                id="maCR"
                 value={ma}
                 onChange={(e) => SetA(e.target.value)}
                 placeholder="Enter Function"
@@ -74,7 +74,7 @@ export const CramerRule = () => {
               <input
                 type="text"
                 className="form-control"
-                id="BiLeft"
+                id="mbCR"
                 value={mb}
                 onChange={(e) => SetB(e.target.value)}
                 placeholder="Enter Left"
