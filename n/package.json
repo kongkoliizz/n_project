@@ -1,0 +1,31 @@
+{
+  "name": "n",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "cubic-spline": "^3.0.3",
+    "cubic-spline-rs": "^0.9.4",
+    "cubic-spline-ts": "^3.0.8",
+    "mathjs": "^10.5.3",
+    "multiple-linear-regression": "^0.0.2",
+    "react": "^18.0.0",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
+    "regression": "^2.0.1",
+    "typescript-cubic-spline": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.9"
+  }
+}
