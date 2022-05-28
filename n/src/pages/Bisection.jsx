@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { derivative, simplify, evaluate } from 'mathjs'
+import { simplify, evaluate } from 'mathjs'
 
 export const Bisection = () => {
   const [Fx, setFx] = useState('')
@@ -12,7 +12,7 @@ export const Bisection = () => {
     console.log(B)
   }
 
-  const Bisection = ({fx}:{fx : string}, {L}:{L : string}, {R}:{R : string}, {error}:{error : string}) => {
+  const Bisection = (fx, L, R, error ) => {
     let xl = parseFloat(L)
     let xr = parseFloat(R)
     let er = 1
@@ -23,7 +23,7 @@ export const Bisection = () => {
         err = parseFloat(error)
     }
     let xm
-    let f = (x: number) => {
+    let f = (x) => {
         let equation = simplify(fx).toString()
         return evaluate(equation, { x })
     }

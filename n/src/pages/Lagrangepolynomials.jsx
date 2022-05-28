@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { LagrangeInterpolationMethod } from "../Method/LagrangeInterpolation"
+// import $ from "jquery"
+// const $ = require( "jquery" )( window );
+import { $ }  from 'react-jquery-plugin'
 
 export const Lagrangepolynomials = () => {
   const [y, setY] = useState('')
@@ -7,8 +10,17 @@ export const Lagrangepolynomials = () => {
   const [v, setV] = useState('')
 
   const handleSubmit = () =>{
-    LagrangeInterpolationMethod(y,x,v)
+    LagrangeInterpolationMethod()
   }
+
+  const test = () =>{
+    test_text = $('#test').text();
+    console.log(test_text);
+  }
+
+  $('#test').click(function() {
+    console.log("Hello world")
+  });
 
   return (
     <div className="container">
@@ -49,12 +61,13 @@ export const Lagrangepolynomials = () => {
                 placeholder="....."
               />
             </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
           </form>
+          <button onClick={handleSubmit} type="submit" className="btn btn-primary">
+              Submit
+          </button>
         </div>
       </div>
+      <button onClick={test} className="btn btn-primary" id="test">TEST</button>
     </div>
   )
 }
